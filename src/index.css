@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Ferretería PARAISO - Sistema de Diseño Futurista
+Colores principales: Azul y Verde futurista
+Tipografía: Poppins para un look moderno
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Colores Base Futuristas */
+    --background: 210 25% 98%;
+    --foreground: 215 25% 15%;
 
+    /* Colores de Tarjetas */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Colores Primarios - Azul Futurista */
+    --primary: 218 94% 59%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 218 94% 54%;
+    --primary-glow: 218 94% 69%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Colores Secundarios - Verde Futurista */
+    --secondary: 152 76% 45%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 152 76% 40%;
+    --secondary-glow: 152 76% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Colores de Acento */
+    --accent: 268 83% 58%;
+    --accent-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Colores Neutros */
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Colores de Borde e Input */
+    --border: 214 20% 88%;
+    --input: 214 20% 92%;
+    --ring: 218 94% 59%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Gradientes Futuristas */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(210 25% 98% / 0.95));
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Sombras Futuristas */
+    --shadow-primary: 0 10px 40px hsl(var(--primary) / 0.2);
+    --shadow-secondary: 0 10px 40px hsl(var(--secondary) / 0.2);
+    --shadow-card: 0 8px 32px hsl(215 25% 15% / 0.08);
+    --shadow-float: 0 20px 60px hsl(215 25% 15% / 0.12);
 
-    --radius: 0.5rem;
+    /* Radio de Borde */
+    --radius: 0.75rem;
+
+    /* Transiciones Suaves */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,98 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+  }
+}
+
+/* Componentes Personalizados */
+@layer components {
+  /* Botones Hero */
+  .btn-hero {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+
+  .btn-hero::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-hero:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Botón WhatsApp Flotante */
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300;
+    animation: pulse-whatsapp 2s infinite;
+  }
+
+  /* Tarjetas de Sección */
+  .section-card {
+    @apply bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20;
+  }
+
+  /* Gradientes de Fondo */
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-section-alt {
+    @apply bg-gradient-to-br from-muted/50 to-background;
+  }
+}
+
+/* Animaciones Personalizadas */
+@layer utilities {
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .fade-in-up-delay-1 { animation-delay: 0.1s; }
+  .fade-in-up-delay-2 { animation-delay: 0.2s; }
+  .fade-in-up-delay-3 { animation-delay: 0.3s; }
+
+  .zoom-in {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: zoomIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoomIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-whatsapp {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Efectos Hover para Tarjetas */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  /* Texto con Gradiente */
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
