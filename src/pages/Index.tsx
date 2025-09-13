@@ -51,7 +51,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background font-poppins">
-      {/* Header Hero Section */}
+      {/* 1️⃣ SEÇÃO HERO - Cabeçalho principal com logo, título e botões de ação */}
       <section className="relative min-h-screen bg-hero flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 z-0"
@@ -104,7 +104,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Historia del Negocio */}
+      {/* 2️⃣ HISTÓRIA DO NEGÓCIO - Seção sobre a origem e evolução da empresa */}
       <section className="py-20 bg-section-alt">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -135,7 +135,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Misión, Visión y Valores */}
+      {/* 3️⃣ MISSÃO, VISÃO E VALORES - Cards com os pilares da empresa */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -179,7 +179,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Materiales Básicos de Obra */}
+      {/* 4️⃣ MATERIAIS BÁSICOS DE OBRA - Lista de produtos para construção */}
       <section className="py-20 bg-section-alt">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -217,7 +217,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Estructuras y Metales */}
+      {/* 5️⃣ ESTRUTURAS E METAIS - Produtos de ferro e estruturas metálicas */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="animate-on-scroll text-center mb-12">
@@ -245,7 +245,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Instalaciones Sanitarias */}
+      {/* 6️⃣ INSTALAÇÕES SANITÁRIAS - Produtos para encanamento e hidráulica */}
       <section className="py-20 bg-section-alt">
         <div className="container mx-auto px-6">
           <div className="animate-on-scroll text-center mb-12">
@@ -273,7 +273,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Instalaciones Eléctricas */}
+      {/* 7️⃣ INSTALAÇÕES ELÉTRICAS - Produtos para instalação elétrica */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="animate-on-scroll text-center mb-12">
@@ -302,7 +302,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonios */}
+      {/* 8️⃣ DEPOIMENTOS DE CLIENTES - Avaliações e feedback dos clientes */}
       <section className="py-20 bg-section-alt">
         <div className="container mx-auto px-6">
           <div className="animate-on-scroll text-center mb-12">
@@ -328,10 +328,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Código QR para WhatsApp */}
+      {/* 9️⃣ CÓDIGO QR PARA WHATSAPP - QR code para contato rápido */}
       <QRCodeSection whatsappNumber={WHATSAPP_NUMBER} />
 
-      {/* Ubicación y Mapa */}
+      {/* 🔟 LOCALIZAÇÃO E MAPA - Informações de endereço e localização */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="animate-on-scroll text-center mb-12">
@@ -365,7 +365,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pie de Página */}
+      {/* 1️⃣1️⃣ RODAPÉ - Informações de contato e dados da empresa */}
       <footer className="bg-gradient-to-r from-primary to-secondary text-white py-16">
         <div className="container mx-auto px-6 text-center">
           <div className="animate-on-scroll">
@@ -399,7 +399,7 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* WhatsApp Flotante */}
+      {/* 1️⃣2️⃣ WHATSAPP FLUTUANTE - Botão fixo para contato via WhatsApp */}
       <WhatsAppFloat onClick={openWhatsApp} />
     </div>
   );
