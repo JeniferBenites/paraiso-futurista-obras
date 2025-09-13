@@ -18,6 +18,7 @@ import materialsImage from '@/assets/construction-materials.jpg';
 import familyImage from '@/assets/family-business.jpg';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { QRCodeSection } from '@/components/QRCodeSection';
+import { SiteQRGenerator } from '@/components/SiteQRGenerator';
 import logo from '@/assets/logo.jpg';
 
 
@@ -420,6 +421,9 @@ const Index = () => {
 
       {/* 1️⃣2️⃣ WHATSAPP FLUTUANTE - Botão fixo para contato via WhatsApp */}
       <WhatsAppFloat onClick={openWhatsApp} />
+      
+      {/* QR Generator temporário para o site */}
+      <SiteQRGenerator />
     </div>
   );
 };
